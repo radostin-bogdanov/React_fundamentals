@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { ThemeToggle } from './ThemeToggle';
 
 const Banner = (props: { headerText: string }) => {
   return (
@@ -16,13 +17,15 @@ const Banner = (props: { headerText: string }) => {
             </div>
         </div>
         <div className="w-full md:w-8/12 flex flex-col items-center md:items-start space-y-2">
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
-                {props.headerText }
-            </h1>
+            <div className="flex items-center justify-between w-full">
+                <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
+                    {props.headerText}
+                </h1>
+                <ThemeToggle />
+            </div>
             <p className="text-lg text-gray-600 dark:text-gray-300 text-center md:text-left">
               Providing exceptional homes worldwide since 2023
             </p>
-            
         </div>
     </header>
   );
