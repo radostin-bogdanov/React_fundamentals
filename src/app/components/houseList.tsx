@@ -1,6 +1,8 @@
-import HouseRow from "./houseRow";
+"use client";
 
-const houses = [
+import HouseRow from "./houseRow";
+import { useState } from "react";
+const housesArray = [
     {
         id: 1,  
         address: "123 Main St",
@@ -34,6 +36,16 @@ const houses = [
 ]
 
 const HouseList = () => {
+    const [houses, setHouses] = useState(housesArray)
+    
+    const addHouse = () =>{
+        setHouses([...houses, {
+            id: 6,
+            address: "1234 Main St",
+            country: "USA",
+            price: "$600,000"
+        }])
+    }
     return (
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden">
             <div className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 border-b border-gray-200 dark:border-gray-700">
@@ -66,6 +78,9 @@ const HouseList = () => {
                         ))}
                     </tbody>
                 </table>
+                <button onClick={addHouse} className="mt-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-medium rounded-lg shadow-sm transition-colors duration-200 flex items-center justify-center space-x-2">
+                    <span>Add House</span>
+                </button>
             </div>
         </div>
     )
